@@ -1,0 +1,11 @@
+#Edita o arquivo
+nano /etc/wpa_supplicant/wpa_supplicant.conf
+
+#da reboot
+reboot
+
+
+#no notebook
+nmap -sP 192.168.43.*
+
+

@@ -1,0 +1,7 @@
+How to use interface bluetooth?
+CODE:
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install blueman
+
+Fonte: http://www.arduinoecia.com.br/2016/05/raspberry-pi-3-brasil.html

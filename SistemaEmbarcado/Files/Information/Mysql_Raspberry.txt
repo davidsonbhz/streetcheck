@@ -1,0 +1,5 @@
+CODE:
+sudo apt-get install mysql-server
+
+Performance tests:
+Fonte: http://imasters.com.br/banco-de-dados/testando-o-mysql-no-raspberry-pi/?trace=1519021197&source=single

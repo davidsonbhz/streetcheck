@@ -1,0 +1,22 @@
+import com.carriots.sdk.Device;
+import com.carriots.sdk.utils.Email
+
+// Update coordinates in device
+def device = Device.find("your_id_developer_device_here")
+device.lat=context.data.lat.toFloat()
+device.lon=context.data.lon.toFloat()
+device.update(); 
+
+
+// check device
+device_in = device.inside(-3.693142, 40.4158134, 1000)
+
+
+// send mail if not inside
+if(!device_in) {
+def email = new Email()
+email.to="your_mail_here"
+email.subject="Device outside"
+email.message="Device outside."
+email.send()
+}

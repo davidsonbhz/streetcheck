@@ -1,0 +1,17 @@
+Tipos de dados retornados pelo GPS
+"class":"TPV",
+"tag":"GLL",
+"device":"/dev/ttyUSB0",
+"mode":3,
+"time":"2015-01-17T20:34:32.000Z",
+"ept":0.005,
+"lat":0.00,
+"lon":0.00,
+"alt":586.500,
+"epx":1.735,
+"epy":2.141,
+"epv":5.398,
+"track":0.0000,
+"speed":0.027,
+"climb":0.000,
+"eps":4.28

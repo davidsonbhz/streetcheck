@@ -1,0 +1,1 @@
+Fonte: http://blog.filipeflop.com/arduino/comunicacao-serial-arduino-com-raspberry-pi.html

@@ -1,0 +1,35 @@
+Steps to use gps
+0) Installing GPS daemon. This step will take a while....
+sudo apt-get install gpsd gpsd-clients cmake subversion build-essential espeak freeglut3-dev imagemagick libdbus-1-dev libdbus-glib-1-dev libdevil-dev libfontconfig1-dev libfreetype6-dev libfribidi-dev libgarmin-dev libglc-dev libgps-dev libgtk2.0-dev libimlib2-dev libpq-dev libqt4-dev libqtwebkit-dev librsvg2-bin libsdl-image1.2-dev libspeechd-dev libxml2-dev ttf-liberation
+
+1)sudo nano /boot/config.txt
+add
+CODE:
+core_freq=250
+enable_uart=1
+
+2) sudo nano /boot/cmdline.txt
+Change the file to the following:
+CODE:
+dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait quiet splash plymouth.ignore-serial-consoles
+or IF YOU HAVE DATA PARTITION Change the file to the following:
+CODE:
+dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait
+
+3)Run
+CODE:
+sudo systemctl stop serial-getty@ttyS0.service
+sudo systemctl disable serial-getty@ttyS0.service
+sudo systemctl stop gpsd.socket
+sudo systemctl disable gpsd.socket
+
+4) REBOOT
+
+5) Execute the daemon reset
+sudo killall gpsd
+sudo gpsd /dev/ttyS0 -F /var/run/gpsd.sock
+
+5) Test gps NMEA data with
+'cat /dev/ttyS0' or 'gpsmon /dev/ttyS0' or with 'sudo cgps -s'
+
+Fonte: https://www.raspberrypi.org/forums/viewtopic.php?t=51788&p=399137
